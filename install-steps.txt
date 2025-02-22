@@ -43,5 +43,7 @@ sudo apt install yarn
  yarn --version
  yarn install
  vi src/config.js
-yarn start
-
+ # Add the EC2 Public IP address
+ BACKEND_SERVER = "http://<ec2-public-ip>:5001/api/";
+ yarn start
+ 

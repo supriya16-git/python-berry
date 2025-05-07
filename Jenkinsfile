@@ -54,7 +54,7 @@ pipeline {
         stage('Package Helm Chart') {
             agent { label 'k8s' }
             steps {
-                dir('berry') {
+                dir('berry-react') {
                     sh """
                         helm lint .
                         helm package . --version ${CHART_VERSION} --app-version ${VERSION}
@@ -66,7 +66,7 @@ pipeline {
         stage('Push Helm Chart to Artifactory') {
             agent { label 'k8s' }
             steps {
-                dir('berry') {
+                dir('berry-react') {
                     sh """
                         curl -u ${ART_USER}:${ART_PASS} \
                         -T ${HELM_CHART_NAME}-${CHART_VERSION}.tgz \

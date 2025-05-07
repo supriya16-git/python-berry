@@ -44,7 +44,7 @@ pipeline {
             agent { label 'docker' }
             steps {
                 sh """
-                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+                    docker login -u "$DOCKER_USER -p "$DOCKER_PASS"
                     docker push ${IMAGE_API}
                     docker push ${IMAGE_UI}
                 """

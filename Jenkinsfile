@@ -31,10 +31,10 @@ pipeline {
         stage('Build Docker Images') {
             agent { label 'docker' }
             steps {
-                dir('2-tier/python-reach-sample/api-server-flask') {
+                dir('api-server-flask') {
                     sh "docker build -t ${IMAGE_API} ."
                 }
-                dir('2-tier/python-reach-sample/react-ui') {
+                dir('react-ui') {
                     sh "docker build -t ${IMAGE_UI} ."
                 }
             }

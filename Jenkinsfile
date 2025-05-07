@@ -80,7 +80,7 @@ pipeline {
             agent { label 'k8s' }
             steps {
                 sh """
-                    export ARGOCD_SERVER=argocd.example.com  # Replace with your ArgoCD server
+                    export ARGOCD_SERVER=a8cb414d6a2bf4d30824ee52db4d2020-1655557088.us-east-1.elb.amazonaws.com
                     argocd login $ARGOCD_SERVER --insecure --auth-token $ARGOCD_AUTH_TOKEN
                     argocd app sync ${HELM_RELEASE_NAME}
                 """
